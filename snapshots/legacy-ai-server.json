@@ -1,0 +1,249 @@
+{
+  "machine_id": "iv-ye819kopogxjd1tka2bb",
+  "arch": "x86_64",
+  "collected_at": 1789429616.2200835,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "OpenStack Nova",
+      "timestamp": 1789429616.220096
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "iv-ye819kopogxjd1tka2bb",
+      "timestamp": 1789429616.2201
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "5.15.152-7.2.ve2.x86_64",
+      "timestamp": 1789429616.2201023
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "CentOS Stream 9",
+      "timestamp": 1789429616.2201042
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Intel(R) Xeon(R) Platinum 8336C CPU @ 2.30GHz + pc-i440fx-5.2",
+      "timestamp": 1789429616.2201214
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 2,
+      "timestamp": 1789429616.2201254
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 1782.8,
+      "timestamp": 1789429616.2201636
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 1012.5,
+      "timestamp": 1789429616.2201664
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 43.2,
+      "timestamp": 1789429616.2201698
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 2048.0,
+      "timestamp": 1789429616.2201724
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 0.0,
+      "timestamp": 1789429616.220175
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "vda",
+          "size": "40G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "vda1",
+              "size": "200M",
+              "type": "part",
+              "mountpoint": "/boot/efi",
+              "model": null
+            },
+            {
+              "name": "vda2",
+              "size": "39.8G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789429616.2202063
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/vda2",
+      "timestamp": 1789429616.2202113
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "40G",
+      "timestamp": 1789429616.2202127
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "12G",
+      "timestamp": 1789429616.2202137
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "27G",
+      "timestamp": 1789429616.2202146
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "30%",
+      "timestamp": 1789429616.2202153
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eth0",
+        "tailscale0",
+        "singbox0"
+      ],
+      "timestamp": 1789429616.220423
+    },
+    {
+      "category": "boot",
+      "source": "dmesg",
+      "key": "anomaly_lines",
+      "value": [
+        "[    0.252941] acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.",
+        "[    1.142960] autofs4: module verification failed: signature and/or required key missing - tainting kernel",
+        "[    2.834895] EXT4-fs (vda2): re-mounted. Opts: errors=remount-ro. Quota mode: none."
+      ],
+      "timestamp": 1789429616.2204263
+    }
+  ],
+  "inferences": [
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 30%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "30%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "27G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 43.2%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 43.2
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 0.0
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 2048.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eth0, tailscale0, singbox0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eth0",
+            "tailscale0",
+            "singbox0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_ANOMALIES_PRESENT",
+      "level": "NOTICE",
+      "claim": "内核日志中捕捉到 3 行警告或硬件错误信息",
+      "evidence": [
+        {
+          "source": "dmesg",
+          "key": "anomaly_lines",
+          "value": [
+            "[    0.252941] acpi PNP0A03:00: fail to add MMCONFIG information, can't access extended PCI configuration space under this bridge.",
+            "[    1.142960] autofs4: module verification failed: signature and/or required key missing - tainting kernel",
+            "[    2.834895] EXT4-fs (vda2): re-mounted. Opts: errors=remount-ro. Quota mode: none."
+          ]
+        }
+      ],
+      "caveat": "部分驱动模块在冷启动时打印的握手失败属于临时重试，需结合实际功能验证是否为致命硬件故障。"
+    }
+  ]
+}

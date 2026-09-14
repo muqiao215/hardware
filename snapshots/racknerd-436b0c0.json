@@ -1,0 +1,248 @@
+{
+  "machine_id": "racknerd-436b0c0",
+  "arch": "x86_64",
+  "collected_at": 1789429605.5301685,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "KVM",
+      "timestamp": 1789429605.5301814
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "racknerd-436b0c0",
+      "timestamp": 1789429605.530186
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "6.8.0-137-generic",
+      "timestamp": 1789429605.530189
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Ubuntu 24.04 LTS",
+      "timestamp": 1789429605.5301914
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Intel(R) Xeon(R) CPU E5-2680 v2 @ 2.80GHz + RHEL 7.6.0 PC (i440FX + PIIX, 1996)  CPU @ 2.0GHz",
+      "timestamp": 1789429605.5302157
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 6,
+      "timestamp": 1789429605.53022
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 7940.5,
+      "timestamp": 1789429605.530269
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 3412.2,
+      "timestamp": 1789429605.530272
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 57.0,
+      "timestamp": 1789429605.5302763
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 4096.0,
+      "timestamp": 1789429605.530279
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 3143.0,
+      "timestamp": 1789429605.5302813
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "sr0",
+          "size": "1024M",
+          "type": "rom",
+          "mountpoint": null,
+          "model": "QEMU DVD-ROM"
+        },
+        {
+          "name": "vda",
+          "size": "150G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "vda1",
+              "size": "1M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "vda2",
+              "size": "146G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            },
+            {
+              "name": "vda3",
+              "size": "4G",
+              "type": "part",
+              "mountpoint": "[SWAP]",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789429605.5303276
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/vda2",
+      "timestamp": 1789429605.5303383
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "144G",
+      "timestamp": 1789429605.53034
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "66G",
+      "timestamp": 1789429605.530341
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "72G",
+      "timestamp": 1789429605.530342
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "48%",
+      "timestamp": 1789429605.530343
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eth0",
+        "tailscale0",
+        "docker0",
+        "br-13c5da6c8f24",
+        "veth0474241",
+        "veth0415057"
+      ],
+      "timestamp": 1789429605.5305722
+    }
+  ],
+  "inferences": [
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 48%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "48%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "72G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 57.0%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 57.0
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 3143.0
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 4096.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eth0, tailscale0, docker0, br-13c5da6c8f24, veth0474241, veth0415057",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eth0",
+            "tailscale0",
+            "docker0",
+            "br-13c5da6c8f24",
+            "veth0474241",
+            "veth0415057"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_CLEAN",
+      "level": "INFO",
+      "claim": "只读内核日志安全子集中未见电源电压不足（Undervoltage）或存储 I/O 硬件级坏道报警",
+      "evidence": [],
+      "caveat": "dmesg ring-buffer 轮转可能冲掉早期引导事件，零报错不等于绝对无偶发故障。"
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "machine_id": "VM-NeoEmyjYgc",
+  "arch": "x86_64",
+  "collected_at": 1789429594.714804,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "KVM",
+      "timestamp": 1789429594.7148151
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "VM-NeoEmyjYgc",
+      "timestamp": 1789429594.714819
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "5.15.0-185-generic",
+      "timestamp": 1789429594.7148216
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Ubuntu 22.04 LTS",
+      "timestamp": 1789429594.7148237
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Intel(R) Xeon(R) CPU E5-2690 v4 @ 2.60GHz",
+      "timestamp": 1789429594.7148368
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 2,
+      "timestamp": 1789429594.7148407
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 3911.8,
+      "timestamp": 1789429594.7148788
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 2840.4,
+      "timestamp": 1789429594.7148807
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 27.4,
+      "timestamp": 1789429594.7148843
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 2048.0,
+      "timestamp": 1789429594.7148864
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 361.6,
+      "timestamp": 1789429594.7148883
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "loop0",
+          "size": "74M",
+          "type": "loop",
+          "mountpoint": "/snap/core22/2955",
+          "model": null
+        },
+        {
+          "name": "loop1",
+          "size": "63.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core20/2866",
+          "model": null
+        },
+        {
+          "name": "loop2",
+          "size": "63.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core20/2922",
+          "model": null
+        },
+        {
+          "name": "loop3",
+          "size": "115.3M",
+          "type": "loop",
+          "mountpoint": "/snap/lxd/40338",
+          "model": null
+        },
+        {
+          "name": "loop4",
+          "size": "50.1M",
+          "type": "loop",
+          "mountpoint": "/snap/snapd/27710",
+          "model": null
+        },
+        {
+          "name": "loop5",
+          "size": "74M",
+          "type": "loop",
+          "mountpoint": "/snap/core22/2437",
+          "model": null
+        },
+        {
+          "name": "loop7",
+          "size": "50.3M",
+          "type": "loop",
+          "mountpoint": "/snap/snapd/27738",
+          "model": null
+        },
+        {
+          "name": "loop8",
+          "size": "115.3M",
+          "type": "loop",
+          "mountpoint": "/snap/lxd/40575",
+          "model": null
+        },
+        {
+          "name": "sr0",
+          "size": "376K",
+          "type": "rom",
+          "mountpoint": null,
+          "model": "QEMU CD-ROM"
+        },
+        {
+          "name": "vda",
+          "size": "32G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "vda1",
+              "size": "31.9G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            },
+            {
+              "name": "vda14",
+              "size": "4M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "vda15",
+              "size": "106M",
+              "type": "part",
+              "mountpoint": "/boot/efi",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789429594.7149272
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/vda1",
+      "timestamp": 1789429594.7149327
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "31G",
+      "timestamp": 1789429594.7149339
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "23G",
+      "timestamp": 1789429594.7149346
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "8.4G",
+      "timestamp": 1789429594.7149353
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "74%",
+      "timestamp": 1789429594.714936
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eth0",
+        "docker0",
+        "br-b014273a06ef",
+        "veth91e25d1",
+        "tailscale0"
+      ],
+      "timestamp": 1789429594.7151225
+    }
+  ],
+  "inferences": [
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 74%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "74%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "8.4G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 27.4%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 27.4
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 361.6
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 2048.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eth0, docker0, br-b014273a06ef, veth91e25d1, tailscale0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eth0",
+            "docker0",
+            "br-b014273a06ef",
+            "veth91e25d1",
+            "tailscale0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_CLEAN",
+      "level": "INFO",
+      "claim": "只读内核日志安全子集中未见电源电压不足（Undervoltage）或存储 I/O 硬件级坏道报警",
+      "evidence": [],
+      "caveat": "dmesg ring-buffer 轮转可能冲掉早期引导事件，零报错不等于绝对无偶发故障。"
+    }
+  ]
+}

@@ -1,0 +1,303 @@
+{
+  "machine_id": "dbyqhnca.colocrossing.cloud",
+  "arch": "x86_64",
+  "collected_at": 1789429589.9695363,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "KVM",
+      "timestamp": 1789429589.9695442
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "dbyqhnca.colocrossing.cloud",
+      "timestamp": 1789429589.9695466
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "5.15.0-46-generic",
+      "timestamp": 1789429589.969548
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Ubuntu 22.04.1 LTS",
+      "timestamp": 1789429589.969549
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Intel(R) Xeon(R) CPU E5-2683 v4 @ 2.10GHz",
+      "timestamp": 1789429589.9695613
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 3,
+      "timestamp": 1789429589.9695642
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 3923.7,
+      "timestamp": 1789429589.9695835
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 2855.6,
+      "timestamp": 1789429589.969585
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 27.2,
+      "timestamp": 1789429589.9695866
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 1024.0,
+      "timestamp": 1789429589.969588
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 192.1,
+      "timestamp": 1789429589.969589
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "loop0",
+          "size": "91.7M",
+          "type": "loop",
+          "mountpoint": "/snap/lxd/38800",
+          "model": null
+        },
+        {
+          "name": "loop1",
+          "size": "74M",
+          "type": "loop",
+          "mountpoint": "/snap/core22/2955",
+          "model": null
+        },
+        {
+          "name": "loop2",
+          "size": "49.3M",
+          "type": "loop",
+          "mountpoint": "/snap/snapd/26865",
+          "model": null
+        },
+        {
+          "name": "loop4",
+          "size": "63.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core20/2866",
+          "model": null
+        },
+        {
+          "name": "loop5",
+          "size": "63.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core20/2922",
+          "model": null
+        },
+        {
+          "name": "loop6",
+          "size": "48.4M",
+          "type": "loop",
+          "mountpoint": "/snap/snapd/26382",
+          "model": null
+        },
+        {
+          "name": "loop7",
+          "size": "115.3M",
+          "type": "loop",
+          "mountpoint": "/snap/lxd/40575",
+          "model": null
+        },
+        {
+          "name": "vda",
+          "size": "60G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "vda1",
+              "size": "60G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789429589.9696112
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/vda1",
+      "timestamp": 1789429589.9696138
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "59G",
+      "timestamp": 1789429589.9696143
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "35G",
+      "timestamp": 1789429589.9696147
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "22G",
+      "timestamp": 1789429589.9696155
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "61%",
+      "timestamp": 1789429589.969616
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eth0",
+        "tailscale0"
+      ],
+      "timestamp": 1789429589.9697213
+    },
+    {
+      "category": "boot",
+      "source": "dmesg",
+      "key": "anomaly_lines",
+      "value": [
+        "[8578280.608035] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+        "[8629558.273834] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+        "[8629558.879089] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+        "[8629558.902071] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+        "[8632152.309942] EXT4-fs (vda1): error count since last fsck: 211",
+        "[8632152.309991] EXT4-fs (vda1): initial error at time 1783342078: ext4_mb_generate_buddy:1141",
+        "[8632152.309998] EXT4-fs (vda1): last error at time 1789313569: ext4_free_inode:362",
+        "[8724426.782851] EXT4-fs (vda1): error count since last fsck: 211",
+        "[8724426.782974] EXT4-fs (vda1): initial error at time 1783342078: ext4_mb_generate_buddy:1141",
+        "[8724426.783000] EXT4-fs (vda1): last error at time 1789313569: ext4_free_inode:362"
+      ],
+      "timestamp": 1789429589.9697235
+    }
+  ],
+  "inferences": [
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 61%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "61%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "22G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 27.2%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 27.2
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 192.1
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 1024.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eth0, tailscale0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eth0",
+            "tailscale0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_ANOMALIES_PRESENT",
+      "level": "NOTICE",
+      "claim": "内核日志中捕捉到 10 行警告或硬件错误信息",
+      "evidence": [
+        {
+          "source": "dmesg",
+          "key": "anomaly_lines",
+          "value": [
+            "[8578280.608035] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+            "[8629558.273834] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+            "[8629558.879089] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+            "[8629558.902071] EXT4-fs error (device vda1) in ext4_free_inode:362: Corrupt filesystem",
+            "[8632152.309942] EXT4-fs (vda1): error count since last fsck: 211",
+            "[8632152.309991] EXT4-fs (vda1): initial error at time 1783342078: ext4_mb_generate_buddy:1141",
+            "[8632152.309998] EXT4-fs (vda1): last error at time 1789313569: ext4_free_inode:362",
+            "[8724426.782851] EXT4-fs (vda1): error count since last fsck: 211",
+            "[8724426.782974] EXT4-fs (vda1): initial error at time 1783342078: ext4_mb_generate_buddy:1141",
+            "[8724426.783000] EXT4-fs (vda1): last error at time 1789313569: ext4_free_inode:362"
+          ]
+        }
+      ],
+      "caveat": "部分驱动模块在冷启动时打印的握手失败属于临时重试，需结合实际功能验证是否为致命硬件故障。"
+    }
+  ]
+}

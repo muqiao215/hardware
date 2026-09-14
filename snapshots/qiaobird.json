@@ -1,0 +1,274 @@
+{
+  "machine_id": "qiaobird",
+  "arch": "x86_64",
+  "collected_at": 1789429585.0391147,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "Standard PC (i440FX + PIIX, 1996)",
+      "timestamp": 1789429585.0391238
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "qiaobird",
+      "timestamp": 1789429585.0391266
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "6.8.0-134-generic",
+      "timestamp": 1789429585.0391283
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Ubuntu 24.04.4 LTS",
+      "timestamp": 1789429585.0391295
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "AMD EPYC-Rome Processor + pc-i440fx-10.0  CPU @ 2.0GHz",
+      "timestamp": 1789429585.0391428
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 4,
+      "timestamp": 1789429585.0391457
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 7894.1,
+      "timestamp": 1789429585.0391736
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 5758.0,
+      "timestamp": 1789429585.0391755
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 27.1,
+      "timestamp": 1789429585.0391777
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 1024.0,
+      "timestamp": 1789429585.039179
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 97.7,
+      "timestamp": 1789429585.0391805
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "sr0",
+          "size": "1024M",
+          "type": "rom",
+          "mountpoint": null,
+          "model": "QEMU DVD-ROM"
+        },
+        {
+          "name": "vda",
+          "size": "60G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "vda1",
+              "size": "59G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            },
+            {
+              "name": "vda14",
+              "size": "4M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "vda15",
+              "size": "106M",
+              "type": "part",
+              "mountpoint": "/boot/efi",
+              "model": null
+            },
+            {
+              "name": "vda16",
+              "size": "913M",
+              "type": "part",
+              "mountpoint": "/boot",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789429585.039205
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/vda1",
+      "timestamp": 1789429585.0392084
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "58G",
+      "timestamp": 1789429585.0392091
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "36G",
+      "timestamp": 1789429585.0392098
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "22G",
+      "timestamp": 1789429585.0392103
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "63%",
+      "timestamp": 1789429585.0392108
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "ens3",
+        "tailscale0"
+      ],
+      "timestamp": 1789429585.0393584
+    },
+    {
+      "category": "boot",
+      "source": "dmesg",
+      "key": "anomaly_lines",
+      "value": [
+        "[    0.612215] ACPI: _OSC evaluation for CPUs failed, trying _PDC",
+        "[    1.608415] RAS: Correctable Errors collector initialized.",
+        "[    5.496413] systemd-journald[368]: File /var/log/journal/e1f280b1b57f435c8dc4b58a1968d048/system.journal corrupted or uncleanly shut down, renaming and replacing.",
+        "[5662895.946534] systemd[1]: canvas-to-api.service: Failed to kill control group /system.slice/canvas-to-api.service, ignoring: Invalid argument",
+        "[5662895.993647] systemd[1]: server-browser.service: Failed to kill control group /system.slice/server-browser.service, ignoring: Invalid argument",
+        "[5662896.006251] systemd[1]: muqiao-image-site-backend.service: Failed with result 'exit-code'."
+      ],
+      "timestamp": 1789429585.039361
+    }
+  ],
+  "inferences": [
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 63%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "63%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "22G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 27.1%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 27.1
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 97.7
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 1024.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: ens3, tailscale0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "ens3",
+            "tailscale0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_ANOMALIES_PRESENT",
+      "level": "NOTICE",
+      "claim": "内核日志中捕捉到 6 行警告或硬件错误信息",
+      "evidence": [
+        {
+          "source": "dmesg",
+          "key": "anomaly_lines",
+          "value": [
+            "[    0.612215] ACPI: _OSC evaluation for CPUs failed, trying _PDC",
+            "[    1.608415] RAS: Correctable Errors collector initialized.",
+            "[    5.496413] systemd-journald[368]: File /var/log/journal/e1f280b1b57f435c8dc4b58a1968d048/system.journal corrupted or uncleanly shut down, renaming and replacing.",
+            "[5662895.946534] systemd[1]: canvas-to-api.service: Failed to kill control group /system.slice/canvas-to-api.service, ignoring: Invalid argument",
+            "[5662895.993647] systemd[1]: server-browser.service: Failed to kill control group /system.slice/server-browser.service, ignoring: Invalid argument",
+            "[5662896.006251] systemd[1]: muqiao-image-site-backend.service: Failed with result 'exit-code'."
+          ]
+        }
+      ],
+      "caveat": "部分驱动模块在冷启动时打印的握手失败属于临时重试，需结合实际功能验证是否为致命硬件故障。"
+    }
+  ]
+}

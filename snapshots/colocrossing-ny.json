@@ -1,0 +1,254 @@
+{
+  "machine_id": "jpzdotyu.colocrossing.cloud",
+  "arch": "x86_64",
+  "collected_at": 1789429611.8509138,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "KVM",
+      "timestamp": 1789429611.850925
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "jpzdotyu.colocrossing.cloud",
+      "timestamp": 1789429611.8509288
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "6.8.0-31-generic",
+      "timestamp": 1789429611.8509312
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Ubuntu 24.04 LTS",
+      "timestamp": 1789429611.850933
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Intel(R) Xeon(R) CPU E5-2683 v4 @ 2.10GHz + RHEL 7.6.0 PC (i440FX + PIIX, 1996)  CPU @ 2.0GHz",
+      "timestamp": 1789429611.8509493
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 3,
+      "timestamp": 1789429611.8509536
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 3915.7,
+      "timestamp": 1789429611.850984
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 1528.2,
+      "timestamp": 1789429611.8509865
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 61.0,
+      "timestamp": 1789429611.8509898
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 1024.0,
+      "timestamp": 1789429611.8509912
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 1022.6,
+      "timestamp": 1789429611.8509932
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "vda",
+          "size": "60G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "vda1",
+              "size": "60G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789429611.85102
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/vda1",
+      "timestamp": 1789429611.8510244
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "59G",
+      "timestamp": 1789429611.8510253
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "33G",
+      "timestamp": 1789429611.851026
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "24G",
+      "timestamp": 1789429611.851027
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "58%",
+      "timestamp": 1789429611.8510275
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eth0",
+        "tailscale0"
+      ],
+      "timestamp": 1789429611.8511949
+    },
+    {
+      "category": "boot",
+      "source": "dmesg",
+      "key": "anomaly_lines",
+      "value": [
+        "[3650403.984139] systemd[1]: banana-showcase.service: Failed with result 'exit-code'.",
+        "[3650404.520666] systemd[1]: gemini-canvas-browser@b.service: Failed with result 'oom-kill'.",
+        "[3650404.787813] systemd[1]: systemd-journald.service: Failed with result 'watchdog'.",
+        "[3650405.112656] systemd-journald[3927794]: File /var/log/journal/3f8498c7c1ad40e6b84ace8bd060ce23/system.journal corrupted or uncleanly shut down, renaming and replacing.",
+        "[4428882.586357] [    686]     0   686   277271     5698     4695     1003         0  1421312      576             0 fail2ban-server",
+        "[4429172.889807] [    686]     0   686   277271     3650     2647     1003         0  1421312     2624             0 fail2ban-server",
+        "[4429174.055795] systemd[1]: systemd-journald.service: Failed with result 'watchdog'.",
+        "[4429174.464898] systemd[1]: banana-showcase.service: Failed with result 'exit-code'.",
+        "[4429175.081634] systemd-journald[511809]: File /var/log/journal/3f8498c7c1ad40e6b84ace8bd060ce23/system.journal corrupted or uncleanly shut down, renaming and replacing.",
+        "[4429175.142759] systemd[1]: gemini-canvas-browser@a.service: Failed with result 'oom-kill'."
+      ],
+      "timestamp": 1789429611.8512049
+    }
+  ],
+  "inferences": [
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 58%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "58%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "24G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 61.0%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 61.0
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 1022.6
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 1024.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eth0, tailscale0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eth0",
+            "tailscale0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_ANOMALIES_PRESENT",
+      "level": "NOTICE",
+      "claim": "内核日志中捕捉到 10 行警告或硬件错误信息",
+      "evidence": [
+        {
+          "source": "dmesg",
+          "key": "anomaly_lines",
+          "value": [
+            "[3650403.984139] systemd[1]: banana-showcase.service: Failed with result 'exit-code'.",
+            "[3650404.520666] systemd[1]: gemini-canvas-browser@b.service: Failed with result 'oom-kill'.",
+            "[3650404.787813] systemd[1]: systemd-journald.service: Failed with result 'watchdog'.",
+            "[3650405.112656] systemd-journald[3927794]: File /var/log/journal/3f8498c7c1ad40e6b84ace8bd060ce23/system.journal corrupted or uncleanly shut down, renaming and replacing.",
+            "[4428882.586357] [    686]     0   686   277271     5698     4695     1003         0  1421312      576             0 fail2ban-server",
+            "[4429172.889807] [    686]     0   686   277271     3650     2647     1003         0  1421312     2624             0 fail2ban-server",
+            "[4429174.055795] systemd[1]: systemd-journald.service: Failed with result 'watchdog'.",
+            "[4429174.464898] systemd[1]: banana-showcase.service: Failed with result 'exit-code'.",
+            "[4429175.081634] systemd-journald[511809]: File /var/log/journal/3f8498c7c1ad40e6b84ace8bd060ce23/system.journal corrupted or uncleanly shut down, renaming and replacing.",
+            "[4429175.142759] systemd[1]: gemini-canvas-browser@a.service: Failed with result 'oom-kill'."
+          ]
+        }
+      ],
+      "caveat": "部分驱动模块在冷启动时打印的握手失败属于临时重试，需结合实际功能验证是否为致命硬件故障。"
+    }
+  ]
+}
