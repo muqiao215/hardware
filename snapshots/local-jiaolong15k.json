@@ -1,0 +1,473 @@
+{
+  "machine_id": "muqiao-Jiaolong15K-Series-GM5BGEE",
+  "arch": "x86_64",
+  "collected_at": 1789428560.9587312,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "Jiaolong15K Series GM5BGEE",
+      "timestamp": 1789428560.9587436
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "muqiao-Jiaolong15K-Series-GM5BGEE",
+      "timestamp": 1789428560.9587476
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "6.8.0-139-generic",
+      "timestamp": 1789428560.9587502
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Ubuntu 24.04.5 LTS",
+      "timestamp": 1789428560.9587522
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "AMD Ryzen 7 7435H",
+      "timestamp": 1789428560.9588456
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 16,
+      "timestamp": 1789428560.9588492
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 31830.4,
+      "timestamp": 1789428560.9588766
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 18492.5,
+      "timestamp": 1789428560.9588795
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 41.9,
+      "timestamp": 1789428560.958883
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 8192.0,
+      "timestamp": 1789428560.9588857
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 5609.2,
+      "timestamp": 1789428560.9588892
+    },
+    {
+      "category": "thermal",
+      "source": "/sys/class/thermal",
+      "key": "soc_temp_celsius",
+      "value": 57.0,
+      "timestamp": 1789428560.9588952
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "loop0",
+          "size": "4K",
+          "type": "loop",
+          "mountpoint": "/snap/bare/5",
+          "model": null
+        },
+        {
+          "name": "loop1",
+          "size": "271.6M",
+          "type": "loop",
+          "mountpoint": "/snap/copilot-cli/59",
+          "model": null
+        },
+        {
+          "name": "loop2",
+          "size": "63.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core20/2866",
+          "model": null
+        },
+        {
+          "name": "loop3",
+          "size": "63.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core20/2922",
+          "model": null
+        },
+        {
+          "name": "loop4",
+          "size": "74M",
+          "type": "loop",
+          "mountpoint": "/snap/core22/2411",
+          "model": null
+        },
+        {
+          "name": "loop5",
+          "size": "74M",
+          "type": "loop",
+          "mountpoint": "/snap/core22/2437",
+          "model": null
+        },
+        {
+          "name": "loop6",
+          "size": "66.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core24/1643",
+          "model": null
+        },
+        {
+          "name": "loop7",
+          "size": "66.8M",
+          "type": "loop",
+          "mountpoint": "/snap/core24/2124",
+          "model": null
+        },
+        {
+          "name": "loop8",
+          "size": "260.8M",
+          "type": "loop",
+          "mountpoint": "/snap/firefox/8863",
+          "model": null
+        },
+        {
+          "name": "loop9",
+          "size": "135.8M",
+          "type": "loop",
+          "mountpoint": "/snap/ghostty/820",
+          "model": null
+        },
+        {
+          "name": "loop10",
+          "size": "531.5M",
+          "type": "loop",
+          "mountpoint": "/snap/gnome-42-2204/263",
+          "model": null
+        },
+        {
+          "name": "loop11",
+          "size": "606.1M",
+          "type": "loop",
+          "mountpoint": "/snap/gnome-46-2404/153",
+          "model": null
+        },
+        {
+          "name": "loop12",
+          "size": "91.7M",
+          "type": "loop",
+          "mountpoint": "/snap/gtk-common-themes/1535",
+          "model": null
+        },
+        {
+          "name": "loop13",
+          "size": "44.6M",
+          "type": "loop",
+          "mountpoint": "/snap/lazygit/25",
+          "model": null
+        },
+        {
+          "name": "loop14",
+          "size": "402M",
+          "type": "loop",
+          "mountpoint": "/snap/mesa-2404/1839",
+          "model": null
+        },
+        {
+          "name": "loop15",
+          "size": "12.9M",
+          "type": "loop",
+          "mountpoint": "/snap/snap-store/1113",
+          "model": null
+        },
+        {
+          "name": "loop16",
+          "size": "12.2M",
+          "type": "loop",
+          "mountpoint": "/snap/snap-store/1216",
+          "model": null
+        },
+        {
+          "name": "loop17",
+          "size": "50.3M",
+          "type": "loop",
+          "mountpoint": "/snap/snapd/27738",
+          "model": null
+        },
+        {
+          "name": "loop18",
+          "size": "50.1M",
+          "type": "loop",
+          "mountpoint": "/snap/snapd/27710",
+          "model": null
+        },
+        {
+          "name": "loop19",
+          "size": "828K",
+          "type": "loop",
+          "mountpoint": "/snap/snapd-desktop-integration/387",
+          "model": null
+        },
+        {
+          "name": "loop20",
+          "size": "828K",
+          "type": "loop",
+          "mountpoint": "/snap/snapd-desktop-integration/391",
+          "model": null
+        },
+        {
+          "name": "loop21",
+          "size": "221.5M",
+          "type": "loop",
+          "mountpoint": "/snap/thunderbird/1240",
+          "model": null
+        },
+        {
+          "name": "loop22",
+          "size": "221.4M",
+          "type": "loop",
+          "mountpoint": "/snap/thunderbird/1255",
+          "model": null
+        },
+        {
+          "name": "nvme1n1",
+          "size": "476.9G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": "YMTC PC41Q-512GB-B",
+          "children": [
+            {
+              "name": "nvme1n1p1",
+              "size": "100M",
+              "type": "part",
+              "mountpoint": "/boot/efi",
+              "model": null
+            },
+            {
+              "name": "nvme1n1p2",
+              "size": "16M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme1n1p3",
+              "size": "200G",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme1n1p4",
+              "size": "900M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme1n1p5",
+              "size": "93.1G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            },
+            {
+              "name": "nvme1n1p6",
+              "size": "182.8G",
+              "type": "part",
+              "mountpoint": "/home",
+              "model": null
+            }
+          ]
+        },
+        {
+          "name": "nvme0n1",
+          "size": "476.9G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": "HM5500 512GB",
+          "children": [
+            {
+              "name": "nvme0n1p1",
+              "size": "16M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p2",
+              "size": "242.5G",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p3",
+              "size": "234.5G",
+              "type": "part",
+              "mountpoint": "/data",
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789428560.9589665
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/nvme1n1p5",
+      "timestamp": 1789428560.958973
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "92G",
+      "timestamp": 1789428560.958974
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "54G",
+      "timestamp": 1789428560.9589748
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "34G",
+      "timestamp": 1789428560.9589756
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "62%",
+      "timestamp": 1789428560.9589765
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eno1",
+        "wlp4s0",
+        "virbr0",
+        "tailscale0",
+        "docker0",
+        "tun0"
+      ],
+      "timestamp": 1789428560.959184
+    }
+  ],
+  "inferences": [
+    {
+      "id": "THERMAL_NOMINAL",
+      "level": "INFO",
+      "claim": "SoC 温控非常优良 (57.0°C)，被动或主动散热处于健康状态",
+      "evidence": [
+        {
+          "source": "/sys/class/thermal",
+          "key": "soc_temp_celsius",
+          "value": 57.0
+        }
+      ],
+      "caveat": "仅代表当前轻载/待机温度，全核编译或 NPU 满载时需复测。"
+    },
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 62%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "62%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "34G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 41.9%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 41.9
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 5609.2
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 8192.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eno1, wlp4s0, virbr0, tailscale0, docker0, tun0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eno1",
+            "wlp4s0",
+            "virbr0",
+            "tailscale0",
+            "docker0",
+            "tun0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_CLEAN",
+      "level": "INFO",
+      "claim": "只读内核日志安全子集中未见电源电压不足（Undervoltage）或存储 I/O 硬件级坏道报警",
+      "evidence": [],
+      "caveat": "dmesg ring-buffer 轮转可能冲掉早期引导事件，零报错不等于绝对无偶发故障。"
+    }
+  ]
+}

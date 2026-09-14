@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "board-doctor"
+version = "0.1.0"
+description = "Embedded SBC and Hardware Diagnostic Probe"
+authors = [{ name = "muqiao" }]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+board-doctor = "board_doctor.cli:main"

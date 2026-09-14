@@ -1,0 +1,368 @@
+{
+  "machine_id": "qiaopai",
+  "arch": "aarch64",
+  "collected_at": 1789428516.8931541,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "Raspberry Pi 5 Model B Rev 1.0\u0000",
+      "timestamp": 1789428516.8931658
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "qiaopai",
+      "timestamp": 1789428516.89317
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "6.12.47+rpt-rpi-2712",
+      "timestamp": 1789428516.893173
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Debian GNU/Linux 13 (trixie)",
+      "timestamp": 1789428516.8931751
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Cortex-A76",
+      "timestamp": 1789428516.893177
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 4,
+      "timestamp": 1789428516.8931813
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 8063.0,
+      "timestamp": 1789428516.8932097
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 6955.8,
+      "timestamp": 1789428516.8932123
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 13.7,
+      "timestamp": 1789428516.8932154
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 2048.0,
+      "timestamp": 1789428516.8932178
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 0.0,
+      "timestamp": 1789428516.8932202
+    },
+    {
+      "category": "thermal",
+      "source": "/sys/class/thermal",
+      "key": "soc_temp_celsius",
+      "value": 59.5,
+      "timestamp": 1789428516.893226
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "loop0",
+          "size": "2G",
+          "type": "loop",
+          "mountpoint": null,
+          "model": null
+        },
+        {
+          "name": "mmcblk0",
+          "size": "238.4G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "mmcblk0p1",
+              "size": "512M",
+              "type": "part",
+              "mountpoint": "/boot/firmware",
+              "model": null
+            },
+            {
+              "name": "mmcblk0p2",
+              "size": "237.9G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            }
+          ]
+        },
+        {
+          "name": "zram0",
+          "size": "2G",
+          "type": "disk",
+          "mountpoint": "[SWAP]",
+          "model": null
+        },
+        {
+          "name": "nvme0n1",
+          "size": "476.9G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": "NE-512",
+          "children": [
+            {
+              "name": "nvme0n1p1",
+              "size": "476.4G",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p2",
+              "size": "64M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p3",
+              "size": "64M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p4",
+              "size": "448K",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p5",
+              "size": "448K",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p6",
+              "size": "80M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p7",
+              "size": "512K",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p8",
+              "size": "300M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p9",
+              "size": "64M",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            },
+            {
+              "name": "nvme0n1p10",
+              "size": "18K",
+              "type": "part",
+              "mountpoint": null,
+              "model": null
+            }
+          ]
+        }
+      ],
+      "timestamp": 1789428516.8932908
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/mmcblk0p2",
+      "timestamp": 1789428516.8932965
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "235G",
+      "timestamp": 1789428516.8932974
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "24G",
+      "timestamp": 1789428516.8932984
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "201G",
+      "timestamp": 1789428516.8932993
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "11%",
+      "timestamp": 1789428516.8933012
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "eth0",
+        "wlan0",
+        "tailscale0"
+      ],
+      "timestamp": 1789428516.8935037
+    },
+    {
+      "category": "boot",
+      "source": "dmesg",
+      "key": "anomaly_lines",
+      "value": [
+        "[    3.205483] wm8960 1-001a: Failed to issue reset",
+        "[    3.210177] wm8960 1-001a: probe with driver wm8960 failed with error -121",
+        "[    3.849541] imx219 11-0010: Error reading reg 0x0000: -121",
+        "[    3.849549] imx219 11-0010: error -EREMOTEIO: failed to read chip id 219",
+        "[    3.850752] imx219 11-0010: probe with driver imx219 failed with error -121",
+        "[    3.913745] Error: Driver 'asoc-simple-card' is already registered, aborting..."
+      ],
+      "timestamp": 1789428516.8935075
+    }
+  ],
+  "inferences": [
+    {
+      "id": "THERMAL_NOMINAL",
+      "level": "INFO",
+      "claim": "SoC 温控非常优良 (59.5°C)，被动或主动散热处于健康状态",
+      "evidence": [
+        {
+          "source": "/sys/class/thermal",
+          "key": "soc_temp_celsius",
+          "value": 59.5
+        }
+      ],
+      "caveat": "仅代表当前轻载/待机温度，全核编译或 NPU 满载时需复测。"
+    },
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 11%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "11%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "201G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 13.7%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 13.7
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 0.0
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 2048.0
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: eth0, wlan0, tailscale0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "eth0",
+            "wlan0",
+            "tailscale0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_ANOMALIES_PRESENT",
+      "level": "NOTICE",
+      "claim": "内核日志中捕捉到 6 行警告或硬件错误信息",
+      "evidence": [
+        {
+          "source": "dmesg",
+          "key": "anomaly_lines",
+          "value": [
+            "[    3.205483] wm8960 1-001a: Failed to issue reset",
+            "[    3.210177] wm8960 1-001a: probe with driver wm8960 failed with error -121",
+            "[    3.849541] imx219 11-0010: Error reading reg 0x0000: -121",
+            "[    3.849549] imx219 11-0010: error -EREMOTEIO: failed to read chip id 219",
+            "[    3.850752] imx219 11-0010: probe with driver imx219 failed with error -121",
+            "[    3.913745] Error: Driver 'asoc-simple-card' is already registered, aborting..."
+          ]
+        }
+      ],
+      "caveat": "部分驱动模块在冷启动时打印的握手失败属于临时重试，需结合实际功能验证是否为致命硬件故障。"
+    }
+  ]
+}

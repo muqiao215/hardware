@@ -1,0 +1,262 @@
+{
+  "machine_id": "rock-5c",
+  "arch": "aarch64",
+  "collected_at": 1789428556.4766684,
+  "facts": [
+    {
+      "category": "system",
+      "source": "dmi/device-tree",
+      "key": "board_model",
+      "value": "Radxa ROCK 5C\u0000",
+      "timestamp": 1789428556.4766812
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "hostname",
+      "value": "rock-5c",
+      "timestamp": 1789428556.4766853
+    },
+    {
+      "category": "system",
+      "source": "uname",
+      "key": "kernel_release",
+      "value": "6.18.45-current-rockchip64",
+      "timestamp": 1789428556.476688
+    },
+    {
+      "category": "system",
+      "source": "/etc/os-release",
+      "key": "os_pretty_name",
+      "value": "Armbian 26.8.3 resolute\nArmbian 26.8.3 resolute",
+      "timestamp": 1789428556.4766898
+    },
+    {
+      "category": "cpu",
+      "source": "lscpu/cpuinfo",
+      "key": "model_name",
+      "value": "Rockchip RK3588/S (4×Cortex-A76 + 4×Cortex-A55)",
+      "timestamp": 1789428556.476694
+    },
+    {
+      "category": "cpu",
+      "source": "nproc",
+      "key": "threads",
+      "value": 8,
+      "timestamp": 1789428556.4766996
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "total_mb",
+      "value": 7934.8,
+      "timestamp": 1789428556.4767368
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "available_mb",
+      "value": 7447.3,
+      "timestamp": 1789428556.476739
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "used_percent",
+      "value": 6.1,
+      "timestamp": 1789428556.4767427
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_total_mb",
+      "value": 3967.4,
+      "timestamp": 1789428556.4767447
+    },
+    {
+      "category": "memory",
+      "source": "/proc/meminfo",
+      "key": "swap_used_mb",
+      "value": 0.0,
+      "timestamp": 1789428556.4767478
+    },
+    {
+      "category": "thermal",
+      "source": "/sys/class/thermal",
+      "key": "soc_temp_celsius",
+      "value": 40.7,
+      "timestamp": 1789428556.4767544
+    },
+    {
+      "category": "storage",
+      "source": "lsblk",
+      "key": "blockdevices",
+      "value": [
+        {
+          "name": "mmcblk1",
+          "size": "233G",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null,
+          "children": [
+            {
+              "name": "mmcblk1p1",
+              "size": "230.6G",
+              "type": "part",
+              "mountpoint": "/",
+              "model": null
+            }
+          ]
+        },
+        {
+          "name": "zram0",
+          "size": "3.9G",
+          "type": "disk",
+          "mountpoint": "[SWAP]",
+          "model": null
+        },
+        {
+          "name": "zram1",
+          "size": "50M",
+          "type": "disk",
+          "mountpoint": "/var/log",
+          "model": null
+        },
+        {
+          "name": "zram2",
+          "size": "0B",
+          "type": "disk",
+          "mountpoint": null,
+          "model": null
+        }
+      ],
+      "timestamp": 1789428556.4767911
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_device",
+      "value": "/dev/mmcblk1p1",
+      "timestamp": 1789428556.4767969
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_size",
+      "value": "227G",
+      "timestamp": 1789428556.4767983
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_used",
+      "value": "4.5G",
+      "timestamp": 1789428556.4767992
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_avail",
+      "value": "221G",
+      "timestamp": 1789428556.4768002
+    },
+    {
+      "category": "storage",
+      "source": "df",
+      "key": "root_use_percent",
+      "value": "2%",
+      "timestamp": 1789428556.4768016
+    },
+    {
+      "category": "network",
+      "source": "ip_a",
+      "key": "active_interfaces",
+      "value": [
+        "end0",
+        "wlan0",
+        "tailscale0"
+      ],
+      "timestamp": 1789428556.4769948
+    }
+  ],
+  "inferences": [
+    {
+      "id": "THERMAL_NOMINAL",
+      "level": "INFO",
+      "claim": "SoC 温控非常优良 (40.7°C)，被动或主动散热处于健康状态",
+      "evidence": [
+        {
+          "source": "/sys/class/thermal",
+          "key": "soc_temp_celsius",
+          "value": 40.7
+        }
+      ],
+      "caveat": "仅代表当前轻载/待机温度，全核编译或 NPU 满载时需复测。"
+    },
+    {
+      "id": "STORAGE_ROOT_HEALTHY",
+      "level": "INFO",
+      "claim": "根文件系统余量充足 (占用率 2%)",
+      "evidence": [
+        {
+          "source": "df",
+          "key": "root_use_percent",
+          "value": "2%"
+        },
+        {
+          "source": "df",
+          "key": "root_avail",
+          "value": "221G"
+        }
+      ],
+      "caveat": "存储被成功识别并挂载不代表其掉电保护安全，关键数据仍需异机冷备。"
+    },
+    {
+      "id": "MEMORY_HEALTHY",
+      "level": "INFO",
+      "claim": "系统内存余量充足 (物理内存占用率 6.1%)",
+      "evidence": [
+        {
+          "source": "/proc/meminfo",
+          "key": "used_percent",
+          "value": 6.1
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_used_mb",
+          "value": 0.0
+        },
+        {
+          "source": "/proc/meminfo",
+          "key": "swap_total_mb",
+          "value": 3967.4
+        }
+      ],
+      "caveat": "内存余量健康不保证瞬时大并发或大模型加载时不会引发 OOM 保护。"
+    },
+    {
+      "id": "NETWORK_LINK_DETECTED",
+      "level": "INFO",
+      "claim": "网络协议栈已建立并探测到可用网卡接口: end0, wlan0, tailscale0",
+      "evidence": [
+        {
+          "source": "ip_a",
+          "key": "active_interfaces",
+          "value": [
+            "end0",
+            "wlan0",
+            "tailscale0"
+          ]
+        }
+      ],
+      "caveat": "【严谨性声明】网卡链路建立仅代表网线插好或 WiFi 关联成功，不能直接推断出外网连通性或 DNS 可靠性。"
+    },
+    {
+      "id": "KERNEL_CLEAN",
+      "level": "INFO",
+      "claim": "只读内核日志安全子集中未见电源电压不足（Undervoltage）或存储 I/O 硬件级坏道报警",
+      "evidence": [],
+      "caveat": "dmesg ring-buffer 轮转可能冲掉早期引导事件，零报错不等于绝对无偶发故障。"
+    }
+  ]
+}
