@@ -34,6 +34,10 @@ def main():
     # matrix 命令
     subparsers.add_parser("matrix", help="查看树莓派 5、ROCK 5C、J1900、笔记本的横向选型对比矩阵")
 
+    # ip-check 命令 (固定使用开源权威 IP.Check.Place 进行纯洁度与风控检测)
+    p_ip = subparsers.add_parser("ip-check", help="运行开源权威 IP.Check.Place 检查 IP 纯洁度、欺诈分与流媒体/AI 解锁")
+    p_ip.add_argument("--ssh", type=str, help="在指定的远程服务器上执行检测（如 meiren, qiaobird, racknerd-436b0c0）")
+
     args = parser.parse_args()
 
     if args.command == "collect":
@@ -71,8 +75,18 @@ def main():
     elif args.command == "matrix":
         print(BoardMatrix.render_markdown())
 
+    elif args.command == "ip-check":
+        import subprocess
+        if args.ssh:
+            print(f"正在远程服务器 [{args.ssh}] 上启动开源权威 IP.Check.Place 纯洁度检测...")
+            subprocess.run(["ssh", "-t", args.ssh, "curl -Ls https://IP.Check.Place | bash -s -- -4"])
+        else:
+            print("正在本机启动开源权威 IP.Check.Place 纯洁度检测...")
+            subprocess.run("curl -Ls https://IP.Check.Place | bash -s -- -4", shell=True)
+
     else:
         parser.print_help()
 
 if __name__ == "__main__":
     main()
+
