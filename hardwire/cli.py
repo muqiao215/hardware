@@ -2,17 +2,17 @@ import sys
 import argparse
 import json
 import os
-from board_doctor.targets.local import LocalCollector
-from board_doctor.targets.ssh import SSHCollector
-from board_doctor.core.reporter import Reporter
-from board_doctor.core.snapshot import SnapshotManager
-from board_doctor.benchmarks.runner import BenchmarkRunner
-from board_doctor.benchmarks.matrix import BoardMatrix
+from hardwire.targets.local import LocalCollector
+from hardwire.targets.ssh import SSHCollector
+from hardwire.core.reporter import Reporter
+from hardwire.core.snapshot import SnapshotManager
+from hardwire.benchmarks.runner import BenchmarkRunner
+from hardwire.benchmarks.matrix import BoardMatrix
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="board-doctor",
-        description="🩺 Board-Doctor: 嵌入式板卡实验台与证据驱动只读诊断探针"
+        prog="hardwire",
+        description="🩺 Hardwire: 嵌入式板卡实验台与证据驱动只读诊断探针"
     )
     subparsers = parser.add_subparsers(dest="command", help="子命令")
 

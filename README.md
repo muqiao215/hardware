@@ -1,4 +1,4 @@
-# 🩺 Board-Doctor (板载大夫)
+# 🩺 Hardwire (板载大夫)
 
 > 嵌入式板卡实验台与证据驱动只读诊断探针 (SBC & x86 Hardware Doctor)
 
@@ -17,17 +17,17 @@
 
 ```bash
 # 1. 本地整机体检
-python3 -m board_doctor collect --local
+python3 -m hardwire collect --local
 
 # 2. 远程无侵入探测树莓派 5
-python3 -m board_doctor collect --ssh muqiaopi
+python3 -m hardwire collect --ssh muqiaopi
 
 # 3. 远程无侵入探测 Radxa ROCK 5C
-python3 -m board_doctor collect --ssh rock-5c
+python3 -m hardwire collect --ssh rock-5c
 
 # 4. 对比两次硬件快照
-python3 -m board_doctor diff snapshots/rock-5c-before.json snapshots/rock-5c-after.json
+python3 -m hardwire diff snapshots/rock-5c-before.json snapshots/rock-5c-after.json
 
 # 5. 查看嵌入式多板卡选型对比横评
-python3 -m board_doctor matrix
+python3 -m hardwire matrix
 ```

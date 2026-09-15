@@ -1,12 +1,12 @@
 # System Architecture
 
 ## Overview
-`board-doctor` 是面向 Linux 嵌入式单板计算机（SBC）及小型 x86 主机的轻量只读诊断与硬件基准套件。架构坚持**无侵入（Agentless）**、**证据链（Evidence-based）**与**确定性快照（Reproducible Snapshots）**。
+`hardwire` 是面向 Linux 嵌入式单板计算机（SBC）及小型 x86 主机的轻量只读诊断与硬件基准套件。架构坚持**无侵入（Agentless）**、**证据链（Evidence-based）**与**确定性快照（Reproducible Snapshots）**。
 
 ## Architecture Diagram
 ```
               ┌──────────────────────────────────────────────┐
-              │           board-doctor CLI / Entry           │
+              │           hardwire CLI / Entry           │
               └──────────────┬───────────────────────────────┘
                              │
             ┌────────────────┴────────────────┐

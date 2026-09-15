@@ -1,8 +1,8 @@
 import subprocess
-from board_doctor.core.evidence import EvidenceBundle
-from board_doctor.core.probe import SystemProbe
-from board_doctor.core.diagnostic import DiagnosticEngine
-from board_doctor.targets.local import PROBE_SCRIPT, parse_probe_stream
+from hardwire.core.evidence import EvidenceBundle
+from hardwire.core.probe import SystemProbe
+from hardwire.core.diagnostic import DiagnosticEngine
+from hardwire.targets.local import PROBE_SCRIPT, parse_probe_stream
 
 class SSHCollector:
     """基于 SSH 的无侵入式（Agentless）远程板卡探测器"""

@@ -1,5 +1,5 @@
 from typing import List, Optional
-from board_doctor.core.evidence import EvidenceBundle, Fact
+from hardwire.core.evidence import EvidenceBundle, Fact
 
 class DiagnosticEngine:
     """证据驱动的只读诊断引擎。严格区分事实与推断，附带边界声明（Caveat）"""

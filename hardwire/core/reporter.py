@@ -1,5 +1,5 @@
 from typing import Dict, Any
-from board_doctor.core.evidence import EvidenceBundle
+from hardwire.core.evidence import EvidenceBundle
 
 C_RESET  = "\033[0m"
 C_BOLD   = "\033[1m"
@@ -17,7 +17,7 @@ class Reporter:
         facts = {f.key: f.value for f in bundle.facts}
 
         print(f"\n{C_BOLD}{C_CYAN}╔══════════════════════════════════════════════════════════════════════╗{C_RESET}")
-        print(f"{C_BOLD}{C_CYAN}║             🩺 Board-Doctor · 硬件只读体检与事实诊断报告             ║{C_RESET}")
+        print(f"{C_BOLD}{C_CYAN}║             🩺 Hardwire · 硬件只读体检与事实诊断报告             ║{C_RESET}")
         print(f"{C_BOLD}{C_CYAN}╚══════════════════════════════════════════════════════════════════════╝{C_RESET}")
 
         # 硬件事实摘要
@@ -57,7 +57,7 @@ class Reporter:
     def format_diff(cls, diff: Dict[str, Any]) -> str:
         lines = []
         lines.append(f"\n{C_BOLD}{C_CYAN}╔══════════════════════════════════════════════════════════════════════╗{C_RESET}")
-        lines.append(f"{C_BOLD}{C_CYAN}║             📊 Board-Doctor · 硬件快照差异对比报告 (Diff)            ║{C_RESET}")
+        lines.append(f"{C_BOLD}{C_CYAN}║             📊 Hardwire · 硬件快照差异对比报告 (Diff)            ║{C_RESET}")
         lines.append(f"{C_BOLD}{C_CYAN}╚══════════════════════════════════════════════════════════════════════╝{C_RESET}")
         lines.append(f"基准快照 A: {diff.get('machine_id_a')}")
         lines.append(f"对比快照 B: {diff.get('machine_id_b')}")

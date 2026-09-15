@@ -24,8 +24,8 @@
 - 已连通测试 Raspberry Pi 5 (`muqiaopi`) 与 Radxa ROCK 5C (`rock-5c`)。
 
 ## Knowledge Map
-- `board_doctor/core/probe.py`: 只读硬件与系统传感器采集器
-- `board_doctor/core/evidence.py`: 事实与推断分离的数据结构
-- `board_doctor/core/snapshot.py`: 快照存储与双快照 Diff 比较引擎
-- `board_doctor/targets/ssh.py`: 基于 SSH 的免安装轻量远程采集驱动
-- `board_doctor/benchmarks/matrix.py`: 树莓派 5、ROCK 5C、x86 的横向选型对比矩阵
+- `hardwire/core/probe.py`: 只读硬件与系统传感器采集器
+- `hardwire/core/evidence.py`: 事实与推断分离的数据结构
+- `hardwire/core/snapshot.py`: 快照存储与双快照 Diff 比较引擎
+- `hardwire/targets/ssh.py`: 基于 SSH 的免安装轻量远程采集驱动
+- `hardwire/benchmarks/matrix.py`: 树莓派 5、ROCK 5C、x86 的横向选型对比矩阵

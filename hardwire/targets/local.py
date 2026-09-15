@@ -1,8 +1,8 @@
 import subprocess
 from typing import Dict
-from board_doctor.core.evidence import EvidenceBundle
-from board_doctor.core.probe import SystemProbe
-from board_doctor.core.diagnostic import DiagnosticEngine
+from hardwire.core.evidence import EvidenceBundle
+from hardwire.core.probe import SystemProbe
+from hardwire.core.diagnostic import DiagnosticEngine
 
 PROBE_SCRIPT = r"""
 echo "===ARCH==="

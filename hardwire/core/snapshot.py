@@ -1,7 +1,7 @@
 import json
 import os
 from typing import Dict, Any, Tuple
-from board_doctor.core.evidence import EvidenceBundle
+from hardwire.core.evidence import EvidenceBundle
 
 class SnapshotManager:
     """管理快照的序列化、持久化与两期 Diff 对比"""

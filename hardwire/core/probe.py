@@ -1,7 +1,7 @@
 import re
 import json
 from typing import Dict, Any, List
-from board_doctor.core.evidence import EvidenceBundle
+from hardwire.core.evidence import EvidenceBundle
 
 class SystemProbe:
     """负责将底层系统原始输出现场解析为事实条目"""

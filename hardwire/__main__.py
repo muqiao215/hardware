@@ -1,4 +1,4 @@
-from board_doctor.cli import main
+from hardwire.cli import main
 
 if __name__ == "__main__":
     main()
