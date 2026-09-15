@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "author": "Codex",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-stm32-bluepill",
+      "id": "stm32",
+      "top": 20,
+      "left": 0,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -170,
+      "left": 235,
+      "attrs": {
+        "i2cAddress": "0x3c"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": 35,
+      "left": 330,
+      "attrs": {
+        "volume": "0.4"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn",
+      "top": 150,
+      "left": 330,
+      "attrs": {
+        "color": "green",
+        "label": "PA1 mute",
+        "key": "m",
+        "bounce": "0"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr",
+      "top": 250,
+      "left": 300,
+      "attrs": {
+        "lux": "250"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "tcrt",
+      "top": 350,
+      "left": 300,
+      "attrs": {
+        "lux": "500",
+        "label": "TCRT5000 AO"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "env",
+      "top": 460,
+      "left": 305,
+      "attrs": {
+        "label": "Temp/Humi AO"
+      }
+    },
+    {
+      "type": "wokwi-mpu6050",
+      "id": "imu",
+      "top": 580,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "note",
+      "top": -130,
+      "left": -210,
+      "attrs": {
+        "text": "multi_sensor_panel\\nPA0 buzzer LOW=ON\\nPA1 button to GND\\nPA2 light AO\\nPA3 TCRT5000 AO\\nPA4 DHT11 DATA\\nPB10/PB11 MPU6050\\nPB8/PB9 OLED"
+      }
+    }
+  ],
+  "connections": [
+    [ "stm32:PB8", "oled:SCL", "green", [ "v-55", "h150" ] ],
+    [ "stm32:PB9", "oled:SDA", "green", [ "v-75", "h170" ] ],
+    [ "stm32:3V3", "oled:VCC", "red", [ "h60", "v-155" ] ],
+    [ "stm32:GND", "oled:GND", "black", [ "h80", "v-135" ] ],
+
+    [ "stm32:PA0", "buzzer:1", "orange", [ "h115", "v20" ] ],
+    [ "stm32:3V3.1", "buzzer:2", "red", [ "h145", "v5" ] ],
+
+    [ "stm32:PA1", "btn:1.r", "blue", [ "h100", "v95" ] ],
+    [ "stm32:GND.1", "btn:2.r", "black", [ "h130", "v120" ] ],
+
+    [ "stm32:3V3.2", "ldr:VCC", "red", [ "h90", "v240" ] ],
+    [ "stm32:GND.2", "ldr:GND", "black", [ "h105", "v260" ] ],
+    [ "stm32:PA2", "ldr:AO", "purple", [ "h80", "v210" ] ],
+
+    [ "stm32:3V3.3", "tcrt:VCC", "red", [ "h100", "v335" ] ],
+    [ "stm32:GND.3", "tcrt:GND", "black", [ "h120", "v360" ] ],
+    [ "stm32:PA3", "tcrt:AO", "purple", [ "h95", "v310" ] ],
+
+    [ "stm32:3V3.4", "env:VCC", "red", [ "h110", "v440" ] ],
+    [ "stm32:GND.4", "env:GND", "black", [ "h130", "v470" ] ],
+    [ "stm32:PA4", "env:SIG", "purple", [ "h105", "v410" ] ],
+
+    [ "stm32:3V3.5", "imu:VCC", "red", [ "h120", "v565" ] ],
+    [ "stm32:GND.5", "imu:GND", "black", [ "h140", "v590" ] ],
+    [ "stm32:PB10", "imu:SCL", "green", [ "h125", "v525" ] ],
+    [ "stm32:PB11", "imu:SDA", "green", [ "h145", "v545" ] ],
+    [ "imu:AD0", "stm32:GND.6", "black", [ "v30", "h-180" ] ]
+  ],
+  "dependencies": {}
+}

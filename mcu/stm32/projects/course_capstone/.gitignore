@@ -1,0 +1,28 @@
+# Build output
+build/
+
+# IDE
+.vscode/.cache/
+.vscode/c_cpp_properties.json
+.cache/
+
+# Compiled files
+*.o
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.su
+*.d
+
+# Backup files
+*~
+*.bak
+*.swp
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

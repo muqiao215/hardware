@@ -1,0 +1,112 @@
+<mxfile host="65bd71144e">
+    <diagram id="hardware-i2c-flow" name="Hardware I2C Event Flow">
+        <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <!-- 标题 -->
+                <mxCell id="title" value="硬件 I2C 读写流程 (Write Byte)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1" vertex="1" parent="1">
+                    <mxGeometry x="280" y="20" width="240" height="30" as="geometry"/>
+                </mxCell>
+
+                <!-- 泳道：CPU -->
+                <mxCell id="lane_cpu" value="CPU (Software)" style="shape=swimlane;horizontal=0;startSize=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="60" width="280" height="480" as="geometry"/>
+                </mxCell>
+                
+                <!-- 泳道：Hardware -->
+                <mxCell id="lane_hw" value="I2C Peripheral" style="shape=swimlane;horizontal=0;startSize=20;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="60" width="280" height="480" as="geometry"/>
+                </mxCell>
+
+                <!-- 步骤 1: Start -->
+                <mxCell id="step1" value="GenerateSTART()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="lane_cpu">
+                    <mxGeometry x="40" y="40" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="ev5" value="EV5: SB=1&#10;(Start Bit Sent)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane_hw">
+                    <mxGeometry x="60" y="40" width="140" height="60" as="geometry"/>
+                </mxCell>
+                
+                <!-- 步骤 2: Address -->
+                <mxCell id="step2" value="Send7bitAddress(Addr)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="lane_cpu">
+                    <mxGeometry x="40" y="140" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="ev6" value="EV6: ADDR=1&#10;(Address Sent)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane_hw">
+                    <mxGeometry x="60" y="140" width="140" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- 步骤 3: Data (Reg) -->
+                <mxCell id="step3" value="SendData(RegAddr)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="lane_cpu">
+                    <mxGeometry x="40" y="240" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="ev8" value="EV8: TXE=1&#10;(Data Register Empty)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane_hw">
+                    <mxGeometry x="60" y="240" width="140" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- 步骤 4: Data (Value) -->
+                <mxCell id="step4" value="SendData(Value)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="lane_cpu">
+                    <mxGeometry x="40" y="340" width="160" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="ev8_2" value="EV8_2: BTF=1&#10;(Byte Transfer Finished)" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="lane_hw">
+                    <mxGeometry x="60" y="340" width="140" height="60" as="geometry"/>
+                </mxCell>
+
+                <!-- 步骤 5: Stop -->
+                <mxCell id="step5" value="GenerateSTOP()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="lane_cpu">
+                    <mxGeometry x="40" y="420" width="160" height="40" as="geometry"/>
+                </mxCell>
+
+                <!-- 连线 -->
+                <mxCell id="link1" value="Wait Event" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="step1" target="ev5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link2" value="OK" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ev5" target="step2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="130"/>
+                            <mxPoint x="240" y="130"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                
+                <mxCell id="link3" value="Wait Event" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="step2" target="ev6">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link4" value="OK" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ev6" target="step3">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="230"/>
+                            <mxPoint x="240" y="230"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="link5" value="Wait Event" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="step3" target="ev8">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link6" value="OK" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ev8" target="step4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="330"/>
+                            <mxPoint x="240" y="330"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+                <mxCell id="link7" value="Wait Event" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="step4" target="ev8_2">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="link8" value="OK" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ev8_2" target="step5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="430"/>
+                            <mxPoint x="240" y="430"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

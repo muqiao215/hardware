@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/firmware.elf",
+            "device": "STM32F103C8",
+            "configFiles": [
+                "${workspaceFolder}/boards/stm32f103c8t6/openocd.cfg"
+            ],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "preLaunchTask": "build",
+            "svdFile": "${workspaceFolder}/svd/STM32F103.svd",
+            "liveWatch": {
+                "enabled": true,
+                "samplesPerSecond": 4
+            }
+        },
+        {
+            "name": "Attach (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/firmware.elf",
+            "device": "STM32F103C8",
+            "configFiles": [
+                "${workspaceFolder}/boards/stm32f103c8t6/openocd.cfg"
+            ],
+            "svdFile": "${workspaceFolder}/svd/STM32F103.svd"
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+graph TD
+    %% Hardware Components
+    subgraph Hardware
+        MCU[AT89S52 MCU]
+        BTN[Button (P2.7)]
+        Display[6-Digit 7-Seg Display]
+        SR1[74HC595 (Digit 0)]
+        SR2[74HC595 (Digit 1)]
+        SR3[74HC595 (Digit 2)]
+        SR4[74HC595 (Digit 3)]
+        SR5[74HC595 (Digit 4)]
+        SR6[74HC595 (Digit 5)]
+    end
+
+    %% Connections
+    MCU -- P3.7 (DS) --> SR1
+    SR1 -- Q7' --> SR2
+    SR2 -- Q7' --> SR3
+    SR3 -- Q7' --> SR4
+    SR4 -- Q7' --> SR5
+    SR5 -- Q7' --> SR6
+    
+    MCU -- P3.6 (SHCP) --> SR1 & SR2 & SR3 & SR4 & SR5 & SR6
+    MCU -- P3.5 (STCP) --> SR1 & SR2 & SR3 & SR4 & SR5 & SR6
+    
+    BTN -- P2.7 --> MCU
+
+    SR1 --> Display
+    SR2 --> Display
+    SR3 --> Display
+    SR4 --> Display
+    SR5 --> Display
+    SR6 --> Display
+
+    %% Logic Flow
+    subgraph Firmware Logic
+        Start((Power On)) --> Init[Init: Ports, Timer0, Vars]
+        Init --> MainLoop[Main Loop]
+
+        subgraph Main Loop
+            CheckBtn{Check Button P2.7}
+            Debounce[Software Debounce]
+            ToggleState[Toggle Start/Stop & Reset]
+            
+            CheckBtn -- Pressed --> Debounce
+            Debounce -- Valid --> ToggleState
+            ToggleState --> Render
+
+            CheckSec{1s Tick?}
+            IncTime[Seconds++]
+            Render[Render HH:MM:SS to Buffer]
+            ShiftOut[Shift Out 6 Bytes]
+
+            CheckSec -- Yes --> IncTime
+            IncTime -- Update --> Render
+            Render --> ShiftOut
+            ShiftOut --> Latch[Latch Data RCK]
+            CheckSec -- No --> CheckBtn
+            Latch --> CheckBtn
+        end
+
+        subgraph Interrupt
+            Timer0[Timer0 ISR (1ms)]
+            TickInc[ms_counter++]
+            Check1s{ms >= 1000?}
+            SetFlag[Set tick_1s Flag]
+            
+            Timer0 --> TickInc
+            TickInc --> Check1s
+            Check1s -- Yes --> SetFlag
+        end
+    end

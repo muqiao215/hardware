@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rpi-hpad"
+version = "0.1.0"
+description = "Software-first Raspberry Pi High-Precision AD/DA Board scaffold"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+hpad = "app.main:main"
+hpad-monitor = "app.cli_monitor:main"
+hpad-logger = "app.logger_app:main"
+hpad-replay = "app.replay_app:main"
+hpad-ros2-node = "ros2_pkg.analog_io_node:main"
+
+[tool.setuptools]
+packages = ["app", "drivers", "services", "ros2_pkg"]

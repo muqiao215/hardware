@@ -1,0 +1,57 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333333">I2C 通信时序图 (主机发送 0xA5)</text>
+
+  <!-- 网格线 -->
+  <g stroke="#eeeeee" stroke-width="1" stroke-dasharray="5,5">
+    <line x1="100" y1="60" x2="100" y2="350"/> <!-- Start -->
+    <line x1="150" y1="60" x2="150" y2="350"/> <!-- Bit 7 -->
+    <line x1="200" y1="60" x2="200" y2="350"/> <!-- Bit 6 -->
+    <line x1="250" y1="60" x2="250" y2="350"/> <!-- Bit 5 -->
+    <line x1="300" y1="60" x2="300" y2="350"/> <!-- Bit 4 -->
+    <line x1="350" y1="60" x2="350" y2="350"/> <!-- Bit 3 -->
+    <line x1="400" y1="60" x2="400" y2="350"/> <!-- Bit 2 -->
+    <line x1="450" y1="60" x2="450" y2="350"/> <!-- Bit 1 -->
+    <line x1="500" y1="60" x2="500" y2="350"/> <!-- Bit 0 -->
+    <line x1="550" y1="60" x2="550" y2="350"/> <!-- ACK -->
+    <line x1="600" y1="60" x2="600" y2="350"/> <!-- Stop -->
+  </g>
+
+  <!-- SCL 波形 (蓝色) -->
+  <text x="30" y="105" font-family="monospace" font-size="16" fill="#0000FF">SCL</text>
+  <path d="M 50 100 L 100 100 L 125 100 L 125 150 L 150 150 L 150 100 L 175 100 L 175 150 L 200 150 L 200 100 L 225 100 L 225 150 L 250 150 L 250 100 L 275 100 L 275 150 L 300 150 L 300 100 L 325 100 L 325 150 L 350 150 L 350 100 L 375 100 L 375 150 L 400 150 L 400 100 L 425 100 L 425 150 L 450 150 L 450 100 L 475 100 L 475 150 L 500 150 L 500 100 L 525 100 L 525 150 L 550 150 L 550 100 L 575 100 L 575 150 L 600 150 L 600 100 L 650 100" fill="none" stroke="#0000FF" stroke-width="2"/>
+
+  <!-- SDA 波形 (红色) -->
+  <!-- Data: 0xA5 (10100101) -->
+  <text x="30" y="205" font-family="monospace" font-size="16" fill="#FF0000">SDA</text>
+  <path d="M 50 200 L 80 200 L 100 250 L 125 250 L 125 200 L 175 200 L 175 250 L 225 250 L 225 200 L 275 200 L 275 250 L 375 250 L 375 200 L 425 200 L 425 250 L 475 250 L 475 200 L 525 200 L 525 250 L 575 250 L 575 250 L 600 250 L 620 200 L 650 200" fill="none" stroke="#FF0000" stroke-width="2"/>
+
+  <!-- 有效数据区阴影 -->
+  <rect x="135" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="185" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="235" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="285" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="335" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="385" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="435" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="485" y="100" width="30" height="150" fill="#0000FF" opacity="0.1"/>
+  <rect x="535" y="100" width="30" height="150" fill="#00aa00" opacity="0.1"/>
+
+  <!-- 文字说明 -->
+  <text x="90" y="320" font-size="12" fill="#333333" text-anchor="middle">Start</text>
+  <text x="150" y="320" font-size="12" fill="#333333" text-anchor="middle">1</text>
+  <text x="200" y="320" font-size="12" fill="#333333" text-anchor="middle">0</text>
+  <text x="250" y="320" font-size="12" fill="#333333" text-anchor="middle">1</text>
+  <text x="300" y="320" font-size="12" fill="#333333" text-anchor="middle">0</text>
+  <text x="350" y="320" font-size="12" fill="#333333" text-anchor="middle">0</text>
+  <text x="400" y="320" font-size="12" fill="#333333" text-anchor="middle">1</text>
+  <text x="450" y="320" font-size="12" fill="#333333" text-anchor="middle">0</text>
+  <text x="500" y="320" font-size="12" fill="#333333" text-anchor="middle">1</text>
+  <text x="550" y="320" font-size="12" fill="#00aa00" font-weight="bold" text-anchor="middle">ACK</text>
+  <text x="610" y="320" font-size="12" fill="#333333" text-anchor="middle">Stop</text>
+
+  <text x="400" y="370" font-size="14" fill="#666666" text-anchor="middle">SCL高电平期间：SDA必须保持稳定（读数据时刻）</text>
+</svg>

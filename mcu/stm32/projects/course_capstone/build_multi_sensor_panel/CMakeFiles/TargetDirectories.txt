@@ -1,0 +1,6 @@
+E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/CMakeFiles/cmsis.dir
+E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/CMakeFiles/hal.dir
+E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/CMakeFiles/firmware.elf.dir
+E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/CMakeFiles/flash.dir
+E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/CMakeFiles/edit_cache.dir
+E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/CMakeFiles/rebuild_cache.dir

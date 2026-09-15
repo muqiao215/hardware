@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Firmware (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/firmware.elf",
+            "device": "STM32F103C8",
+            "configFiles": [
+                "${workspaceFolder}/boards/stm32f103c8t6/openocd.cfg"
+            ],
+            "runToMain": true,
+            "preLaunchTask": "build-firmware",
+            "svdFile": ""
+        }
+    ]
+}

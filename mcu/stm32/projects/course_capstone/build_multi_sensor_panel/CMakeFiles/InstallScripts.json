@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/web/embedded/stm32/projects/course_capstone/build_multi_sensor_panel/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

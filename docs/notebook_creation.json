@@ -1,0 +1,5 @@
+{
+  "error": true,
+  "code": "ERROR",
+  "message": "Authentication expired or invalid. Redirected to: https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fnotebooklm.google.com%2F&dsh=S-1002907763%3A1768956370098563&followup=https%3A%2F%2Fnotebooklm.google.com%2F&ifkv=AXbMIuDnQc5iH0DXrmoDdTGV3AUj1molWunVePazhlQXpRyqszNY5wvhC4kCYqb_2c2NAWYOQTCLmw&osid=1&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin\nRun 'notebooklm login' to re-authenticate."
+}

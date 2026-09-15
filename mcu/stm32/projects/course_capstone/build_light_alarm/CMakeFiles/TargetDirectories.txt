@@ -1,0 +1,6 @@
+E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/CMakeFiles/cmsis.dir
+E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/CMakeFiles/hal.dir
+E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/CMakeFiles/firmware.elf.dir
+E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/CMakeFiles/flash.dir
+E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/CMakeFiles/edit_cache.dir
+E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/CMakeFiles/rebuild_cache.dir

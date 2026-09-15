@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"E:/web/embedded/stm32/projects/course_capstone/build_light_alarm/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

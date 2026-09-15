@@ -1,0 +1,367 @@
+<mxfile host="app.diagrams.net" modified="2024-01-03T00:00:00.000Z" agent="Claude" version="21.0.0">
+  <diagram name="定时器基础" id="timer-basic">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- 标题 -->
+        <mxCell id="title" value="STM32 定时器原理图" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontSize=24;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="600" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 第一部分：时钟链路 ==================== -->
+        <mxCell id="section1-title" value="1️⃣ 定时器时钟链路（核心公式）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="400" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 72MHz 时钟源 -->
+        <mxCell id="clk-source" value="🔌 系统时钟&#xa;72 MHz" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="130" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头1 -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="160" as="sourcePoint" />
+            <mxPoint x="180" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PSC 预分频器 -->
+        <mxCell id="psc" value="PSC&#xa;预分频器&#xa;÷(PSC+1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="120" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- PSC 说明 -->
+        <mxCell id="psc-note" value="例：PSC=7199&#xa;72MHz ÷ 7200 = 10kHz" style="text;html=1;strokeColor=#d6b656;fillColor=#fffef0;align=center;fontSize=11;fontColor=#666666;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="210" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头2 -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="160" as="sourcePoint" />
+            <mxPoint x="320" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- CNT 计数器 -->
+        <mxCell id="cnt" value="CNT&#xa;计数器&#xa;0 → ARR" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="120" width="100" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- CNT 说明 -->
+        <mxCell id="cnt-note" value="每个时钟脉冲 +1&#xa;到达 ARR 后归零" style="text;html=1;strokeColor=#82b366;fillColor=#f0fff0;align=center;fontSize=11;fontColor=#666666;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="210" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头3 -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="420" y="160" as="sourcePoint" />
+            <mxPoint x="460" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ARR 比较器 -->
+        <mxCell id="arr" value="ARR&#xa;自动重装载&#xa;比较: CNT==ARR?" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ARR 说明 -->
+        <mxCell id="arr-note" value="例：ARR=9999&#xa;CNT 从 0 数到 9999" style="text;html=1;strokeColor=#b85450;fillColor=#fff5f5;align=center;fontSize=11;fontColor=#666666;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="210" width="140" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头4 -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;strokeWidth=2;strokeColor=#666666;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="580" y="160" as="sourcePoint" />
+            <mxPoint x="620" y="160" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 更新事件 -->
+        <mxCell id="update-event" value="⚡ 更新事件&#xa;(Update)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="130" width="100" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- 公式框 -->
+        <mxCell id="formula-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a73e8;strokeColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="760" y="110" width="360" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="formula" value="⏱️ 定时周期公式&#xa;&#xa;T = (PSC+1) × (ARR+1) / 72MHz&#xa;&#xa;例: (7200 × 10000) / 72000000 = 1秒" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=14;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="115" width="340" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 第二部分：定时中断 ==================== -->
+        <mxCell id="section2-title" value="2️⃣ 定时中断模式（6-1）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 定时中断流程 -->
+        <mxCell id="int-cnt" value="CNT&#xa;0→9999" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="int-arr" value="== ARR?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="315" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="int-arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="345" as="sourcePoint" />
+            <mxPoint x="150" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="int-irq" value="🔔 中断!&#xa;TIM2_IRQHandler()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="320" width="140" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="int-arrow2" value="是" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="345" as="sourcePoint" />
+            <mxPoint x="260" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="int-code" value="Num++;  // 你的代码" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=12;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="430" y="320" width="160" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="int-arrow3" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="345" as="sourcePoint" />
+            <mxPoint x="430" y="345" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 循环箭头 -->
+        <mxCell id="int-loop" value="CNT=0, 重新计数" style="endArrow=classic;html=1;strokeWidth=2;curved=1;strokeColor=#82b366;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="380" as="sourcePoint" />
+            <mxPoint x="80" y="380" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="140" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- 定时中断时序图 -->
+        <mxCell id="int-timing-label" value="时序图：" style="text;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="300" width="60" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="int-timing" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="620" y="320" width="500" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="timing-cnt" value="CNT: 0...9999 | 0...9999 | 0...9999 |" style="text;html=1;fontSize=11;fontFamily=Courier New;align=left;" vertex="1" parent="1">
+          <mxGeometry x="630" y="330" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="timing-irq" value="IRQ:     ↑        ↑        ↑" style="text;html=1;fontSize=11;fontFamily=Courier New;align=left;fontColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="630" y="355" width="300" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="timing-time" value="时间: ←—1秒—→←—1秒—→←—1秒—→" style="text;html=1;fontSize=11;fontFamily=Courier New;align=left;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="630" y="380" width="350" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 第三部分：PWM模式 ==================== -->
+        <mxCell id="section3-title" value="3️⃣ PWM 输出模式（6-3）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="440" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- PWM 流程 -->
+        <mxCell id="pwm-cnt" value="CNT&#xa;0→99" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="480" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pwm-ccr" value="CCR&#xa;(占空比)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="480" width="80" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pwm-arrow1" value="比较" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="505" as="sourcePoint" />
+            <mxPoint x="160" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="pwm-compare" value="CNT &lt; CCR?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="270" y="475" width="90" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pwm-arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="240" y="505" as="sourcePoint" />
+            <mxPoint x="270" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="pwm-high" value="输出 HIGH&#xa;(LED 亮)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="455" width="90" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pwm-low" value="输出 LOW&#xa;(LED 灭)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="390" y="510" width="90" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pwm-arrow-yes" value="是" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="490" as="sourcePoint" />
+            <mxPoint x="390" y="475" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="pwm-arrow-no" value="否" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="360" y="520" as="sourcePoint" />
+            <mxPoint x="390" y="530" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- PWM 公式 -->
+        <mxCell id="pwm-formula-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ff6600;strokeColor=#ff6600;" vertex="1" parent="1">
+          <mxGeometry x="510" y="470" width="240" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pwm-formula" value="📊 占空比公式&#xa;&#xa;Duty = CCR / (ARR+1) × 100%" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=13;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="475" width="220" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- PWM 波形图 -->
+        <mxCell id="pwm-wave-label" value="PWM 波形示例 (CCR=30, ARR=99)：" style="text;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="780" y="440" width="250" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pwm-wave-box" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="780" y="460" width="340" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- 波形绘制 -->
+        <mxCell id="wave-high1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="800" y="480" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-low1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="830" y="510" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-high2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="900" y="480" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-low2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="930" y="510" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-high3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#82b366;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="480" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-low3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#b85450;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="510" width="70" height="30" as="geometry" />
+        </mxCell>
+
+        <mxCell id="wave-label-high" value="HIGH (CNT&lt;30)" style="text;html=1;fontSize=10;fontColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="795" y="465" width="90" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-label-low" value="LOW (CNT≥30)" style="text;html=1;fontSize=10;fontColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="840" y="540" width="90" height="15" as="geometry" />
+        </mxCell>
+        <mxCell id="wave-duty" value="占空比 = 30/100 = 30%" style="text;html=1;fontSize=11;fontStyle=1;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="950" y="545" width="150" height="15" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 第四部分：编码器模式 ==================== -->
+        <mxCell id="section4-title" value="4️⃣ 编码器接口模式（6-8）" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=16;fontStyle=1;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="580" width="300" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- 编码器输入 -->
+        <mxCell id="enc-input-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e8f4e8;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="620" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-input-title" value="🎛️ 旋转编码器" style="text;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="625" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-a" value="A相 (PA6)" style="text;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="650" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-b" value="B相 (PA7)" style="text;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="675" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-phase" value="90°相位差" style="text;html=1;fontSize=10;fontColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="60" y="700" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头 -->
+        <mxCell id="enc-arrow1" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="680" as="sourcePoint" />
+            <mxPoint x="240" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- TIM3 编码器模式 -->
+        <mxCell id="enc-tim3-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="240" y="620" width="200" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-tim3-title" value="⚙️ TIM3 编码器模式" style="text;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="625" width="160" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-tim3-func" value="TIM_EncoderInterfaceConfig()" style="text;html=1;fontSize=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="250" y="650" width="180" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-tim3-desc1" value="• 硬件自动计数" style="text;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="255" y="675" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-tim3-desc2" value="• 正转 CNT++, 反转 CNT--" style="text;html=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="255" y="695" width="170" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 箭头 -->
+        <mxCell id="enc-arrow2" value="" style="endArrow=classic;html=1;strokeWidth=2;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="680" as="sourcePoint" />
+            <mxPoint x="480" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- CNT 读取 -->
+        <mxCell id="enc-cnt-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="480" y="640" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-cnt-title" value="📖 读取 CNT" style="text;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="650" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-cnt-func" value="TIM_GetCounter(TIM3)" style="text;html=1;fontSize=10;fontFamily=Courier New;" vertex="1" parent="1">
+          <mxGeometry x="490" y="675" width="120" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="enc-cnt-desc" value="→ 位置/速度" style="text;html=1;fontSize=11;fontColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="695" width="100" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- 对比表 -->
+        <mxCell id="enc-compare-title" value="⚡ 软件 vs 硬件编码器对比：" style="text;html=1;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="600" width="200" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="enc-compare-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="660" y="620" width="450" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="enc-table" value="| 项目 | 5-2 软件中断 | 6-8 硬件接口 |&#xa;|------|-------------|-------------|&#xa;| 实现 | EXTI + 软件判断 | TIM 编码器模式 |&#xa;| CPU负担 | 每个脉冲都要中断 | 零负担，硬件自动 |&#xa;| 速度 | 高速会丢脉冲 | 超高速可靠 |&#xa;| 引脚 | 任意GPIO | 固定(PA6/PA7) |" style="text;html=1;fontSize=11;fontFamily=Courier New;align=left;" vertex="1" parent="1">
+          <mxGeometry x="670" y="630" width="430" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== 底部总结 ==================== -->
+        <mxCell id="summary-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#1a73e8;strokeColor=#1a73e8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="780" width="1080" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="summary" value="📌 核心记忆点&#xa;&#xa;定时中断: PSC分频 → CNT计数到ARR → 触发中断 → 执行你的代码&#xa;PWM输出: CNT不断循环 → 与CCR比较 → CNT&lt;CCR输出HIGH，否则LOW → 形成方波&#xa;编码器: 外部脉冲驱动CNT → 硬件自动计数 → 读取CNT得到位置/速度" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=13;fontColor=#ffffff;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="60" y="785" width="1040" height="70" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

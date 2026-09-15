@@ -1,0 +1,12 @@
+{
+  "spi_bus": 0,
+  "spi_device": 0,
+  "vref": 5.0,
+  "drdy_pin": 17,
+  "reset_pin": 18,
+  "pdwn_pin": 27,
+  "cs_adc_pin": 22,
+  "cs_dac_pin": 23,
+  "sample_rate": "30SPS",
+  "gain": 1
+}

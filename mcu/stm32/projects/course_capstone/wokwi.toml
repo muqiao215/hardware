@@ -1,0 +1,4 @@
+[wokwi]
+version = 1
+firmware = 'build_multi_sensor_panel/firmware.hex'
+elf = 'build_multi_sensor_panel/firmware.elf'

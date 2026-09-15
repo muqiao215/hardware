@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S", ".",
+                "-B", "build",
+                "-DCMAKE_TOOLCHAIN_FILE=cmake/toolchains/arm-gcc.cmake",
+                "-DBOARD=stm32f103c8t6",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-G", "Ninja"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "build"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "cmake",
+            "args": ["--build", "build", "--target", "clean"],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f", "boards/stm32f103c8t6/openocd.cfg",
+                "-c", "program build/firmware.elf verify reset exit"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+            "dependsOn": "build"
+        }
+    ]
+}

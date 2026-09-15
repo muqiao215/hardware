@@ -1,0 +1,78 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- 标题 -->
+  <text x="400" y="30" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#333333">硬件 I2C 写寄存器流程图 (Polling Mode)</text>
+
+  <!-- 泳道背景 -->
+  <rect x="50" y="60" width="350" height="500" fill="#dae8fc" opacity="0.3"/> <!-- Software Lane -->
+  <rect x="400" y="60" width="350" height="500" fill="#ffe6cc" opacity="0.3"/> <!-- Hardware Lane -->
+
+  <!-- 泳道标题 -->
+  <text x="225" y="85" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6c8ebf">软件指令 (Software)</text>
+  <text x="575" y="85" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#d79b00">硬件事件 (Hardware Event)</text>
+
+  <!-- 箭头定义 -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333333" />
+    </marker>
+  </defs>
+
+  <!-- Step 1: Start -->
+  <rect x="100" y="120" width="250" height="40" rx="5" ry="5" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="225" y="145" font-family="monospace" font-size="14" text-anchor="middle" fill="#000000">I2C_GenerateSTART()</text>
+  
+  <line x1="350" y1="140" x2="450" y2="140" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <polygon points="450,120 500,160 650,160 650,120 600,120" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="550" y="145" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#006600">EV5 (SB=1)</text>
+
+  <!-- Link 1 -->
+  <path d="M 550 160 L 550 180 L 225 180 L 225 200" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: Address -->
+  <rect x="100" y="200" width="250" height="40" rx="5" ry="5" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="225" y="225" font-family="monospace" font-size="14" text-anchor="middle" fill="#000000">I2C_Send7bitAddress()</text>
+
+  <line x1="350" y1="220" x2="450" y2="220" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <polygon points="450,200 500,240 650,240 650,200 600,200" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="550" y="225" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#006600">EV6 (ADDR=1)</text>
+
+  <!-- Link 2 -->
+  <path d="M 550 240 L 550 260 L 225 260 L 225 280" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Register Address -->
+  <rect x="100" y="280" width="250" height="40" rx="5" ry="5" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="225" y="305" font-family="monospace" font-size="14" text-anchor="middle" fill="#000000">I2C_SendData(RegAddr)</text>
+
+  <line x1="350" y1="300" x2="450" y2="300" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <polygon points="450,280 500,320 650,320 650,280 600,280" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="550" y="305" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#006600">EV8 (TXE=1)</text>
+
+  <!-- Link 3 -->
+  <path d="M 550 320 L 550 340 L 225 340 L 225 360" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Data Value -->
+  <rect x="100" y="360" width="250" height="40" rx="5" ry="5" fill="#ffffff" stroke="#333333" stroke-width="2"/>
+  <text x="225" y="385" font-family="monospace" font-size="14" text-anchor="middle" fill="#000000">I2C_SendData(Value)</text>
+
+  <line x1="350" y1="380" x2="450" y2="380" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <polygon points="450,360 500,400 650,400 650,360 600,360" fill="#d5e8d4" stroke="#82b366" stroke-width="2"/>
+  <text x="550" y="385" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#006600">EV8_2 (BTF=1)</text>
+
+  <!-- Link 4 -->
+  <path d="M 550 400 L 550 420 L 225 420 L 225 440" fill="none" stroke="#333333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Stop -->
+  <rect x="100" y="440" width="250" height="40" rx="5" ry="5" fill="#e1d5e7" stroke="#9673a6" stroke-width="2"/>
+  <text x="225" y="465" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="#000000">I2C_GenerateSTOP()</text>
+
+  <!-- 说明 -->
+  <text x="400" y="550" font-family="sans-serif" font-size="14" fill="#555555" text-anchor="middle">核心机制：软件发送指令 -> 死循环等待硬件事件 (CheckEvent) -> 下一步</text>
+
+</svg>

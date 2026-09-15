@@ -1,0 +1,13 @@
+{
+    "cmake.generator": "Ninja",
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+    "cmake.configureSettings": {
+        "BOARD": "stm32f103c8t6"
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "cortex-debug.openocdPath": "openocd",
+    "cortex-debug.armToolchainPath": "",
+    "files.associations": {
+        "*.ld": "ld"
+    }
+}

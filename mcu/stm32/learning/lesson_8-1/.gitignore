@@ -1,0 +1,24 @@
+# Dependencies
+../lesson_5-2/src/Delay.c
+../lesson_5-2/src/OLED.c
+../lesson_5-2/include/Delay.h
+../lesson_5-2/include/OLED.h
+../lesson_5-2/include/OLED_Font.h
+../lesson_5-2/include/stm32f10x_conf.h
+
+# cmake/
+../lesson_5-2/cmake/
+!include ../lesson_5-2/cmake/boards/stm32f103c8t6.cmake
+!include ../lesson_5-2/cmake/toolchains/arm-gcc.cmake
+
+# boards/
+../lesson_5-2/boards/
+
+# drivers/
+../lesson_5-2/drivers/
+
+# .vscode/
+../lesson_5-2/.vscode/
+
+# svd/
+../lesson_5-2/svd/

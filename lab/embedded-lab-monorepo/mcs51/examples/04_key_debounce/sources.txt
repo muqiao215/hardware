@@ -1,0 +1,3 @@
+main.c
+../../common/drivers/uart0.c
+../../common/utils/debounce.c
