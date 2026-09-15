@@ -120,6 +120,22 @@ class BoardMatrix:
         md.append("   - **通用大模型推理：带 CUDA 独显的笔记本**。\n")
 
         md.append("4. **哪个最省电？**")
-        md.append("   - **待机省电之王：Radxa ROCK 5C**（A55 能效小核待机约 2W）与 **Raspberry Pi 5**（约 2.8W）。按 24 小时开机计算，一年电费仅约 10~15 元。")
+        md.append("   - **待机省电之王：Radxa ROCK 5C**（A55 能效小核待机约 2W）与 **Raspberry Pi 5**（约 2.8W）。按 24 小时开机计算，一年电费仅约 10~15 元。\n")
+
+        md.append("### 4. 个人全量设备实测天梯榜与 N100 当量矩阵")
+        md.append("| 设备资产 | 核心配置与架构 | 单核性能 | 全核多进程 | 内存拷贝带宽 | N100 综合当量 | 最适合的角色与定位 |")
+        md.append("|---|---|---|---|---|---|---|")
+        md.append("| **蛟龙 15K 笔记本** | Ryzen 7 7435H (16T, 45W+) | 0.172s | 0.454s | 1863 MB/s | **~3.8 个 N100** | 桌面性能怪物：本地大模型蒸馏、重型大工程构建 |")
+        md.append("| **legacy-ai-server** | Xeon Platinum 8336C (2T) | 0.371s | 0.460s | 1303 MB/s | **~1.2 个 N100** | 单核 IPC 极高：适合跑高主频计算或轻量 API |")
+        md.append("| **树莓派 5 (Pi 5)** | BCM2712 A76 (4T @ 2.4G) | 0.427s | 0.484s | 3611 MB/s | **~1.0 个 N100** | 黄金服务基准：最稳本地 Docker 中枢、自动化网关 |")
+        md.append("| **qiaobird (EPYC)** | AMD EPYC-Rome (4T) | 0.490s | 0.632s | 1206 MB/s | **~1.1 个 N100** | 稳健云端主力：多任务数据库、常驻应用、云端开发 |")
+        md.append("| **东芝 R73 笔记本** | i5-7200U (4T @ 2.5G) | 0.392s | 0.905s | 1492 MB/s | **~0.85 个 N100** | 自带 UPS 免维护：不怕断电，离线工控与数据库冷备 |")
+        md.append("| **ROCK 5C (RK3588S)** | 4×A76 + 4×A55 (8T) + 6 TOPS | 0.426s | 1.004s | 7509 MB/s | **~1.2 个 N100 + 专用NPU** | 边缘推理之王：板载 6 TOPS NPU，四通道高带宽 |")
+        md.append("| **racknerd-436b0c0** | Xeon E5-2680 v2 (6T @ 2.8G) | 0.519s | 0.809s | 330 MB/s | **~1.3 个 N100** | 闷声发大财：母机 0 抢占，适合内网 CI/CD 构建与批处理 |")
+        md.append("| **racknerd-bf2025** | Xeon Gold 6152 (6T @ 2.1G) | 0.681s | 0.886s | 558 MB/s | **~1.1 个 N100** | 指令集最全 (支持 AVX-512)：建议走 Tailscale 避免丢包 |")
+        md.append("| **greenrise (Contabo)** | Intel Broadwell (2T @ 2.0G) | 0.735s | 0.921s | 355 MB/s | **~0.6 个 N100** | 性价比存储机：空间充足，适合长效数据备份与同步 |")
+        md.append("| **meiren (LAX BGP)** | Xeon E5-2690 v3 (2T) | 0.980s | 0.955s | 668 MB/s | **~0.5 个 N100** | 线路机：美西优质 BGP，专职外网反向代理与流量转发 |")
+        md.append("| **moonrise** | Xeon E5-2683 v4 (3T) | 1.215s | 1.227s | 767 MB/s | **~0.5 个 N100** | 异地容灾备用机 |")
+        md.append("| **colocrossing-ny** | Xeon E5-2683 v4 (3T) | 1.029s | 1.438s | 786 MB/s | **~0.5 个 N100** | 美东节点，轻量 Worker 备用 |")
 
         return "\n".join(md)
